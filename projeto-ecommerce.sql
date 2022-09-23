@@ -60,3 +60,13 @@ INSERT INTO `DBpaymentmethod` (`payment_id`, `name`) VALUES
 (2, 'Ticket'),
 (3, 'Bank Tranfer');
 
+CREATE TABLE IF NOT EXISTS `DBshippingmethod` (
+  `shipping_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL,
+  PRIMARY KEY (`shipping_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+INSERT INTO `DBshippingmethod` (`shipping_id`, `name`) VALUES
+(1, 'Pick UP Store'),
+(2, 'Shipping Company');
+
