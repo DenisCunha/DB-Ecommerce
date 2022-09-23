@@ -70,3 +70,18 @@ INSERT INTO `DBshippingmethod` (`shipping_id`, `name`) VALUES
 (1, 'Pick UP Store'),
 (2, 'Shipping Company');
 
+CREATE TABLE IF NOT EXISTS `DBorderstatus` (
+  `orderstatus_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL,
+  PRIMARY KEY (`orderstatus_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+INSERT INTO `DBorderstatus` (`orderstatus_id`, `name`) VALUES
+(1, 'Pending'),
+(2, 'Processing'),
+(3, 'Complente'),
+(4, 'Dispatched'),
+(5, 'Approved'),
+(6, 'Tracking Code'),
+(7, 'Deliver');
+
