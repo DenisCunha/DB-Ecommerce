@@ -104,3 +104,15 @@ INSERT INTO `DBorder` (`order_id`, `customer_id`, `products_ids`, `paymentmethod
 (3, 2, '[{"id": 3}]', 1 , 1, 4, '7326.0000', '192.168.0.125', '2022-09-23 12:35:47'),
 (4, 3, '[{"id": 2}, {"id": 3}, {"od": 4}]', 3, 2, 6, '340.1875', '192.168.0.32', '2022-09-23 12:35:47');
 
+
+verificando clientes aprovados no DB
+SELECT * FROM `dbcustomer` WHERE `approved` = 1 
+
+verifica se os clientes tem pedidos 
+SELECT dbo.`order_id` as Pedido, dbo.`total`, (select `name` FROM `dborderstatus` WHERE `orderstatus_id` = dbo.`orderstatus`) as status, dbc.name as nome  FROM `dbcustomer` dbc left join `dborder` dbo ON (dbc.`customer_id` = dbo.`customer_id`) WHERE dbc.`customer_id` = dbo.`customer_id` ORDER BY dbc.`customer_id` 
+
+consulta a tabela de status e filtra por ordem alfabetica
+SELECT * FROM `dborderstatus` WHERE 1 ORDER BY `name` ASC
+
+
+
