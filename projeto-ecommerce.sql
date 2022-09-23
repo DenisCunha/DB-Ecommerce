@@ -16,10 +16,10 @@ CREATE TABLE IF NOT EXISTS `DBcustomer` (
    CONSTRAINT unique_document_DBcustomer unique (document)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-INSERT INTO `DBcustomer` (`name`, `email`, `telephone`, `password`, `address`, `document`, `ip`, `approved`, `date_added` ) VALUES
-('Jorge Amado', 'teste@teste.com.br', '9744552255', MD5('1234'), 'Rua Direita, 100', '99955544422', '192.168.0.1', 1, '2022-09-23 14:40:00'),
-('Machado de Assis', 'teste2@teste.com.br', '1188554488', MD5('1234'), 'Rua Esqueda, 4520', '44455566622', '192.168.0.3', 1, '2022-09-23 14:40:00'),
-('Carlos Drummoound de Andrade', 'teste3@teste.com.br', '45988775544', MD5('1234'), 'Rua Central, 987', '32255445588', '192.168.0.5', 1, '2022-09-23 14:40:00');
+INSERT INTO `DBcustomer` (`customer_id`, `name`, `email`, `telephone`, `password`, `address`, `document`, `ip`, `approved`, `date_added` ) VALUES
+(1, 'Jorge Amado', 'teste@teste.com.br', '9744552255', MD5('1234'), 'Rua Direita, 100', '99955544422', '192.168.0.1', 1, '2022-09-23 14:40:00'),
+(2, 'Machado de Assis', 'teste2@teste.com.br', '1188554488', MD5('1234'), 'Rua Esqueda, 4520', '44455566622', '192.168.0.3', 1, '2022-09-23 14:40:00'),
+(3, 'Carlos Drummoound de Andrade', 'teste3@teste.com.br', '45988775544', MD5('1234'), 'Rua Central, 987', '32255445588', '192.168.0.5', 1, '2022-09-23 14:40:00');
 
 CREATE TABLE IF NOT EXISTS `DBproduct` (
   `product_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -84,4 +84,23 @@ INSERT INTO `DBorderstatus` (`orderstatus_id`, `name`) VALUES
 (5, 'Approved'),
 (6, 'Tracking Code'),
 (7, 'Deliver');
+
+CREATE TABLE IF NOT EXISTS `DBorder` (
+  `order_id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_id` int(11) NOT NULL DEFAULT '0',
+  `products_ids` text NOT NULL,
+  `paymentmethod` int(11) NOT NULL DEFAULT '0',
+  `shippingmethod` int(11) NOT NULL DEFAULT '0',
+  `orderstatus` int(11) NOT NULL DEFAULT '0',
+  `total` decimal(15,4) NOT NULL DEFAULT '0.0000',
+  `ip` varchar(40) NOT NULL,
+  `date_added` datetime NOT NULL,
+  PRIMARY KEY (`order_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+INSERT INTO `DBorderstatus` (`order_id`, `customer_id`, `products_ids`, `paymentmethod`, `shippingmethod`, `orderstatus`, `total`, `ip`, `date_added`) VALUES
+(1, 1, '[{"id": 1}, {"id": 3}, {"od": 5}]', 1, 1, 1),
+(2, 1, '[{"id": 2}]', 2, 1, 3),
+(3, 2, '[{"id": 3}]', 1 , 1, 4),
+(4, 3, '[{"id": 2}, {"id": 3}, {"od": 4}]', 3, 2, 6);
 
