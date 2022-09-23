@@ -48,3 +48,15 @@ INSERT INTO `DBproduct` (`product_id`, `model`, `sku`, `name`, `ean`, `stock`, `
 (3, 'Product 3', 'XYXZ', 'Produto Teste 03', '12345678903', 100, 'https://i.picsum.photos/id/337/200/300.jpg?blur=5&hmac=TwsSBMFmtBOLeVNo_S4-beSp5rjSO7xhRyYAuxXGa8k', '190.0000', '0.00000000', '0.00000000', '0.00000000', '0.00000000', 5, 1, 0, '2009-02-03 16:59:00', '2011-09-30 01:05:23'),
 (4, 'Product 4', 'XYXZA', 'Produto Teste 04', '12345678904', 50, 'https://i.picsum.photos/id/870/200/300.jpg?blur=2&grayscale&hmac=ujRymp644uYVjdKJM7kyLDSsrqNSMVRPnGU99cKl6Vs', '80.0000', '0.00000000', '0.00000000', '0.00000000', '0.00000000', 0, 1, 0, '2009-02-03 17:00:10', '2011-09-30 01:06:00'),
 (5, 'Product 5', 'XYXZAS', 'Produto Teste 05', '12345678905', 27, 'https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ', '100.0000', '5.00000000', '0.00000000', '0.00000000', '0.00000000', 4, 1, 0, '2009-02-03 17:07:26', '2011-09-30 01:07:22');
+
+CREATE TABLE IF NOT EXISTS `DBpaymentmethod` (
+  `payment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL,
+  PRIMARY KEY (`payment_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+INSERT INTO `DBpaymentmethod` (`payment_id`, `name`) VALUES
+(1, 'Credit Card'),
+(2, 'Ticket'),
+(3, 'Bank Tranfer');
+
