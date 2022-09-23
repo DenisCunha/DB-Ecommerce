@@ -98,9 +98,9 @@ CREATE TABLE IF NOT EXISTS `DBorder` (
   PRIMARY KEY (`order_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-INSERT INTO `DBorderstatus` (`order_id`, `customer_id`, `products_ids`, `paymentmethod`, `shippingmethod`, `orderstatus`, `total`, `ip`, `date_added`) VALUES
-(1, 1, '[{"id": 1}, {"id": 3}, {"od": 5}]', 1, 1, 1),
-(2, 1, '[{"id": 2}]', 2, 1, 3),
-(3, 2, '[{"id": 3}]', 1 , 1, 4),
-(4, 3, '[{"id": 2}, {"id": 3}, {"od": 4}]', 3, 2, 6);
+INSERT INTO `DBorder` (`order_id`, `customer_id`, `products_ids`, `paymentmethod`, `shippingmethod`, `orderstatus`, `total`, `ip`, `date_added`) VALUES
+(1, 1, '[{"id": 1}, {"id": 3}, {"od": 5}]', 1, 1, 1, '122.2790', '192.168.0.22', '2022-09-23 12:35:47'),
+(2, 1, '[{"id": 2}]', 2, 1, 3, '302.9030', '192.168.0.55', '2022-09-23 12:35:47'),
+(3, 2, '[{"id": 3}]', 1 , 1, 4, '7326.0000', '192.168.0.125', '2022-09-23 12:35:47'),
+(4, 3, '[{"id": 2}, {"id": 3}, {"od": 4}]', 3, 2, 6, '340.1875', '192.168.0.32', '2022-09-23 12:35:47');
 
